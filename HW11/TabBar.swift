@@ -1,20 +1,26 @@
-//
-//  TabBar.swift
-//  HW11
-//
-//  Created by Павел Градов on 07.05.2024.
-//
-
 import UIKit
 
-class TabBar: UITabBar {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+final class TabBar: UITabBarController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setUpVC()
+        
+        tabBar.barTintColor = .white
+        tabBar.tintColor = .black
+        tabBar.backgroundColor = .white
     }
-    */
-
+    
+    func setUpVC() -> Void {
+        let mainVC = UINavigationController(rootViewController: MainVC())
+        mainVC.setUpTabBar(image: "triangle", title: "Main")
+        
+        let messagesVC = MessagesVC()
+        messagesVC.setUpTabBar(image: "square", title: "Messages")
+        
+        let profileVC = ProfileVC()
+        profileVC.setUpTabBar(image: "circle", title: "Profile")
+        
+        setViewControllers([mainVC, messagesVC, profileVC], animated: false)
+    }
 }

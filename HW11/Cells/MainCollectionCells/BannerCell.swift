@@ -12,8 +12,6 @@ final class BannerCell: UICollectionViewCell, CollectionCellProtocol {
         fatalError("init(coder:) has not been implemented")
     }
     
-    internal var completion: (() -> Void)?
-    
     internal lazy var imageView : UIImageView = AppUIFuncs.createImageView(
         withSize: CGRect(x: 0, y: 0, width: 296, height: 161),
         cornerRadius: 20)
@@ -33,9 +31,6 @@ final class BannerCell: UICollectionViewCell, CollectionCellProtocol {
         size: CGRect(x: dateLabel.frame.origin.x, y: dateLabel.frame.maxY + 10, width: dateLabel.frame.width, height: 54),
         textColor: .white)
     
-    // TODO: переделать в кнопку
-    // сделаю эту кнопку уникальной, поскольку только она не будет в стеке
-    // мб потом сделаю функцию в AppUIFuncs и просто не буду туда передавать размер
     private lazy var readButton : UIButton = {
         $0.setTitle("Read more...", for: .normal)
         $0.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .thin)

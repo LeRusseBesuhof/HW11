@@ -1,9 +1,6 @@
 import UIKit
 
-// TODO: достать качественные картинки для второй секции
-// переделать мб под стек вторую секцию. Если и третю удастся, то и первую перелопачу
-
-final class MainViewController: UIViewController {
+final class MainVC: UIViewController {
 
     private lazy var collectionData : [MainPageSection] = MainPageSection.getMockData()
     
@@ -27,7 +24,7 @@ final class MainViewController: UIViewController {
     }
 }
 
-extension MainViewController : UICollectionViewDataSource {
+extension MainVC : UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         collectionData.count
@@ -61,7 +58,7 @@ extension MainViewController : UICollectionViewDataSource {
     
 }
 
-extension MainViewController : UICollectionViewDelegate {
+extension MainVC : UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         

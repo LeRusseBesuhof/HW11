@@ -1,29 +1,42 @@
-//
-//  MessagesVC.swift
-//  HW11
-//
-//  Created by Павел Градов on 06.05.2024.
-//
-
 import UIKit
 
-class MessagesVC: UIViewController {
-
+final class MessagesVC: UIViewController {
+    
+    private lazy var tableData : [TableItem] = TableItem.getMockData()
+    
+    private lazy var tableView : UITableView = {
+        $0.frame.origin = CGPoint(x: 30, y: 100)
+        $0.register(UITableViewCell.self, forCellReuseIdentifier: "table")
+        $0.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        $0.isScrollEnabled = false
+        $0.dataSource = self
+        $0.layer.cornerRadius = 30
+        return $0
+    }(UITableView(frame: CGRect(x: 30, y: 100, width: view.frame.width - 60, height: 470), style: .plain))
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .appWhite
+        view.addSubview(tableView)
+    }
+}
 
-        // Do any additional setup after loading the view.
+extension MessagesVC : UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        tableData.count
     }
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let item = tableData[indexPath.row]
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "table", for: indexPath)
 
-    /*
-    // MARK: - Navigation
+        var config = cell.defaultContentConfiguration()
+        config.setUpConfig(toName: item.name, text: item.text, image: item.image)
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        cell.selectionStyle = .none
+        cell.contentConfiguration = config
+        return cell
     }
-    */
-
 }

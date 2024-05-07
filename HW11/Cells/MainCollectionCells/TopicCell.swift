@@ -4,8 +4,6 @@ final class TopicCell: UICollectionViewCell, CollectionCellProtocol {
     
     static var reuseID: String = "topic"
     
-    internal var completion: (() -> Void)?
-    
     internal var imageView: UIImageView = AppUIFuncs.createImageView(
         withSize: CGRect(x: 18, y: 9, width: 25, height: 25),
         cornerRadius: 0)
@@ -17,10 +15,7 @@ final class TopicCell: UICollectionViewCell, CollectionCellProtocol {
     
     private lazy var button : UIButton = {
         return $0
-    }(UIButton(
-        frame: CGRect(x: textLabel.frame.maxX + 10, y: 14, width: 16, height: 16),
-        primaryAction: UIAction(handler: { [weak self] _ in self?.completion?() })
-    ))
+    }(UIButton(frame: CGRect(x: textLabel.frame.maxX + 10, y: 14, width: 16, height: 16)))
     
     func setUpCell(withItem item: MainPageItem) {
         

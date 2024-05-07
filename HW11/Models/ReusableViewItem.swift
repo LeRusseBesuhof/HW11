@@ -5,12 +5,13 @@ struct ReusableViewItem : Identifiable {
     let title : String
     var buttonImage : String?
     var buttonText : String?
+    var footerText : String?
     
     static func getMockData() -> [ReusableViewItem] {
         [
-            ReusableViewItem(title: "Devices", buttonImage: "device"),
+            ReusableViewItem(title: "Devices", buttonImage: "apple", footerText: "Apple Inc. is a technology company. It designs, develops, and sells consumer electronics, computer software, and online services."),
             ReusableViewItem(title: "Topics", buttonText: "see more"),
-            ReusableViewItem(title: "Devices", buttonText: "show all")
+            ReusableViewItem(title: "Contacts", buttonText: "show all")
         ]
     }
 }
