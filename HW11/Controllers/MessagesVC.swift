@@ -5,14 +5,14 @@ final class MessagesVC: UIViewController {
     private lazy var tableData : [TableItem] = TableItem.getMockData()
     
     private lazy var tableView : UITableView = {
-        $0.frame.origin = CGPoint(x: 30, y: 100)
+        $0.frame.origin = CGPoint(x: 0, y: 100)
         $0.register(UITableViewCell.self, forCellReuseIdentifier: "table")
         $0.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         $0.isScrollEnabled = false
         $0.dataSource = self
         $0.layer.cornerRadius = 30
         return $0
-    }(UITableView(frame: CGRect(x: 30, y: 100, width: view.frame.width - 60, height: 470), style: .plain))
+    }(UITableView(frame: view.frame, style: .insetGrouped))
     
     override func viewDidLoad() {
         super.viewDidLoad()

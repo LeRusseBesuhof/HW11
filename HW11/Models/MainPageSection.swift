@@ -9,9 +9,9 @@ struct MainPageSection : Identifiable {
     internal static func getMockData() -> [MainPageSection] {
         
         let devicesGroup = [
-            MainPageItem(image: "iphone", text: "The iPhone is a line of smartphones produced by Apple", title: "iPhone"),
-            MainPageItem(image: "mac", text: "MacBook is a brand of Mac notebook computers designed and marketed by Apple", title: "MacBook"),
-            MainPageItem(image: "airpods", text: "AirPods are wireless Bluetooth earbuds designed by Apple", title: "AirPods")
+            MainPageItem(image: "iphone", text: "The iPhone is a line of smartphones produced by Apple", title: "iPhone", date: DateComponents(year: 2007, month: 1, day: 9)),
+            MainPageItem(image: "mac", text: "MacBook is a brand of Mac notebook computers designed and marketed by Apple", title: "MacBook", date: DateComponents(year: 1984, month: 1, day: 24)),
+            MainPageItem(image: "airpods", text: "AirPods are wireless Bluetooth earbuds designed by Apple", title: "AirPods", date: DateComponents(year: 2016, month: 9, day: 7))
         ]
         
         let topicsGroup = [

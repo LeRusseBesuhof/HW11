@@ -5,4 +5,5 @@ struct MainPageItem : Identifiable {
     let image: String
     let text: String
     var title: String?
+    var date: DateComponents?
 }

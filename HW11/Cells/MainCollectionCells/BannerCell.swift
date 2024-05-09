@@ -56,7 +56,7 @@ final class BannerCell: UICollectionViewCell, CollectionCellProtocol {
         
         AppUIFuncs.setViewData(toImageView: imageView, textLabel: textLabel, titleLabel: titleLabel, fromItem: item)
     
-        dateLabel.text = getDate(forDay: ind)
+        dateLabel.text = getDate(item.date!)
         
         [titleLabel, dateLabel, textLabel, readButton].forEach { imageView.addSubview($0) }
         imageView.isUserInteractionEnabled = true
@@ -64,23 +64,8 @@ final class BannerCell: UICollectionViewCell, CollectionCellProtocol {
         addSubview(imageView)
     }
     
-    private func getDate(forDay dayIndex: Int) -> String {
+    private func getDate(_ dateComponents: DateComponents) -> String {
         
-        var dateComponents = DateComponents()
-        switch dayIndex {
-        case 0:
-            dateComponents.year = 2007
-            dateComponents.month = 1
-            dateComponents.day = 9
-        case 1:
-            dateComponents.year = 1984
-            dateComponents.month = 1
-            dateComponents.day = 24
-        default:
-            dateComponents.year = 2016
-            dateComponents.month = 9
-            dateComponents.day = 7
-        }
         let date = Date()
         let calendar = Calendar.current
         let dateFormatter = DateFormatter()
